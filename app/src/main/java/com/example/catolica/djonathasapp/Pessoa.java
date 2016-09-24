@@ -34,6 +34,8 @@
             return key;
         }
 
+        public Pessoa() {}
+
         public Pessoa(String nome, String email, int telefone) {
             this.nome = nome;
             this.email = email;
@@ -107,15 +109,35 @@
             });
         }
 
-        public RealmResults<Pessoa> getAllPessoas() {
+        static public RealmResults<Pessoa> getAllPessoas() {
             Realm realm = Realm.getInstance(realmConfigPessoa);
 
             return realm.where(Pessoa.class).findAll();
         }
 
-        public Pessoa getPessoa(int id) {
+        static public Pessoa getPessoa(int id) {
             Realm realm = Realm.getInstance(realmConfigPessoa);
 
             return realm.where(Pessoa.class).equalTo("id", id).findFirst();
+        }
+
+        public void delete() {
+            Realm realm = Realm.getInstance(realmConfigPessoa);
+
+            final Pessoa pessoa = this;
+            realm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    pessoa.deleteFromRealm();
+                }
+            });
+        }
+
+        public void update() {
+            Realm realm = Realm.getInstance(realmConfigPessoa);
+
+            realm.beginTransaction();
+            realm.copyToRealmOrUpdate(this);
+            realm.commitTransaction();
         }
     }
