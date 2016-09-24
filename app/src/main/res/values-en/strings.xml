@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DjonathasApp</string>
+    <string name="btnSalvar">Save</string>
+    <string name="btnApagar">Delete</string>
+    <string name="txtEmail">E-mail</string>
+    <string name="txtNome">Name</string>
+    <string name="txtTelefone">Phone</string>
+    <string name="msgSemCamera">No camera detected on your device</string>
+    <string name="msgAssuntoEmail">Sending a email</string>
+    <string name="msgCorpoEmail">This is a test message</string>
+    <string name="btnCompartilhar">Share</string>
+</resources>

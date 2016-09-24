@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name" translatable="false">DjonathasApp</string>
+    <string name="btnSalvar">Salvar</string>
+    <string name="btnApagar">Apagar</string>
+    <string name="txtNome">Nome</string>
+    <string name="txtEmail">E-mail</string>
+    <string name="txtTelefone">Telefone</string>
+    <string name="msgSemCamera">Não foi detectada câmera no seu dispositivo</string>
+    <string name="msgAssuntoEmail">Enviando um e-mail</string>
+    <string name="msgCorpoEmail">Esta é uma mensagem de teste</string>
+    <string name="btnCompartilhar">Compartilhar</string>
+</resources>
