@@ -109,13 +109,13 @@
             });
         }
 
-        static public RealmResults<Pessoa> getAllPessoas() {
+        public RealmResults<Pessoa> getAllPessoas() {
             Realm realm = Realm.getInstance(realmConfigPessoa);
 
             return realm.where(Pessoa.class).findAll();
         }
 
-        static public Pessoa getPessoa(int id) {
+        public Pessoa getPessoa(int id) {
             Realm realm = Realm.getInstance(realmConfigPessoa);
 
             return realm.where(Pessoa.class).equalTo("id", id).findFirst();

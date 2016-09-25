@@ -1,2 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_13db5da541a2abd66688ce486f7026a512df2331/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_106c885e08adc54e0de9eb993a70d6a4045d009b/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_0601f222c2b3b3888ed2c447f1c49c264ef314be/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_dffe3c2fa54d23ec52943505561a27f2198039a4/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_20663d069589e6537090d1d54dcee6b0bcbcf127/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_97c6594279470cba6ff60b63f87fb583e60307a9/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="465aa3394b6ef021b62ed2ca7c661845e6ce9d7a">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_331fe966cf90e5e1dc9f8ba6e77dad3e07d8e9b7/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_7dc0e5ea6fdda80431949672eaeeb4dfc83de5b5/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_4c350d9522d8948f42b9fbc032bb73173e53640f/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_c2551224df691aa4ef222c6ef21f4e8d3dd067c3/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_caa2433bc53058e97ec84e24f57abf99d87a4c91/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="c5e6490573cd2cc8018417f60ddd251138b6ed61">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-24.2.1_ef3f4c6d0364daa3184594b41260ceaa95bd12d3/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_f9360479f4c2d806b2f27b324fe81ecbe4debc3c/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="868013f2a76e20147dce98f7be785c6a6cd4a82f">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5c383a93af277253359b2b9da6ffdfa4235e752e/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_629cd1832deaaf46eaf1a5e216ee832ef1c3fd43/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_1237b6812c5953e382eb21e9f54c8ff0a6d7ce25/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_480e294d9c12947c8052e26d42e086aaa2187437/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/io.realm/realm-android-library/1.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="15a3e65c92d3cde64c725dba8d590a1123d2d213">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/io.realm-realm-android-library-1.2.0_80ab2024889600119012dc84519bbc699655cd14/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_d94d632e7af6c20daa902b29d0a133e57f936bd6/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/.gradle/caches/modules-2/files-2.1/io.realm/realm-annotations/1.2.0/5e4042f9e0d39e0d01d4a8661d01e24995b2cbef/realm-annotations-1.2.0.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="5e4042f9e0d39e0d01d4a8661d01e24995b2cbef">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/realm-annotations-1.2.0_0c2bf0dd20e6560899d8823f0be2029134dc8e1c/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/.gradle/caches/modules-2/files-2.1/org.greenrobot/eventbus/3.0.0/ddd99896e9569eaababbe81b35d80e1b91c4ad85/eventbus-3.0.0.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/eventbus-3.0.0_8c1602f1ff4bc4387e11d16babef8c65b41e1152/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_2808979f3c8305a61434610537edad55d182cabb/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.getkeepsafe.relinker/relinker/1.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="264f0bc4c0680cfe7a60fea1f12a43f1ab48e7c8">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.getkeepsafe.relinker-relinker-1.2.1_c39ee484ef7a3ecc8cdf78efd11f708f11821d0e/classes.dex" />
+    </item>
+    <item
+        jar="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/catolica/AndroidStudioProjects/DjonathasApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_f11d23ed177a62c19c0eb3e183b93fdc0467817a/classes.dex" />
+    </item>
+
+</items>

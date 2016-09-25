@@ -18,7 +18,7 @@
     import org.greenrobot.eventbus.Subscribe;
     import org.greenrobot.eventbus.ThreadMode;
 
-    public class Tela1Activity extends AppCompatActivity {
+    public class PessoaActivity extends AppCompatActivity {
         private EventBus eventBus = EventBus.getDefault();
         static final int REQUEST_IMAGE_CAPTURE = 1;
         private TextView txtNome;
@@ -29,7 +29,7 @@
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_tela1);
+            setContentView(R.layout.activity_pessoa);
 
             final Context context = getApplicationContext();
 

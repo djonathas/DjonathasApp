@@ -9,4 +9,6 @@
     <string name="msgAssuntoEmail">Enviando um e-mail</string>
     <string name="msgCorpoEmail">Esta é uma mensagem de teste</string>
     <string name="btnCompartilhar">Compartilhar</string>
+    <string name="btnListView">ListView</string>
+    <string name="btnRecyclerView">RecyclerView</string>
 </resources>

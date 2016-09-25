@@ -10,4 +10,6 @@
     <string name="msgAssuntoEmail">Sending a email</string>
     <string name="msgCorpoEmail">This is a test message</string>
     <string name="btnCompartilhar">Share</string>
+    <string name="btnListView">ListView</string>
+    <string name="btnRecyclerView">RecyclerView</string>
 </resources>

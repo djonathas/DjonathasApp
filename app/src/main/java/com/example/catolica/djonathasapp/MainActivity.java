@@ -3,10 +3,12 @@ package com.example.catolica.djonathasapp;
 import android.app.Activity;
 //import android.content.Context;
 //import android.content.Intent;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -65,11 +67,12 @@ public class MainActivity extends AppCompatActivity {
         //obtendo os botões e campos de texto
         Button btnSalvar = (Button) findViewById(R.id.btnSalvar);
         Button btnApagar = (Button) findViewById(R.id.btnApagar);
+        Button btnRecyclerView = (Button) findViewById(R.id.btnRecyclerView);
 
 //        btnSalvar.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent tela1 = new Intent(getApplicationContext(), Tela1Activity.class);
+//                Intent tela1 = new Intent(getApplicationContext(), PessoaActivity.class);
 //
 //                eventBus.postSticky(new Pessoa(inpNome.getText().toString(), inpEmail.getText().toString(), Integer.parseInt(inpTelefone.getText().toString())));
 //
@@ -88,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
                 new AlertDialog.Builder(activity)
                         .setTitle("Salvo com sucesso!")
-                        .setMessage("Quant. de cadastros: " + String.valueOf(Pessoa.getAllPessoas().size()))
+                        .setMessage("Quant. de cadastros: " + String.valueOf(pessoa.getAllPessoas().size()))
                         .show();
             }
         });
@@ -100,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
                 inpNome.setText("");
                 inpEmail.setText("");
                 inpTelefone.setText("");
+            }
+        });
+
+        btnRecyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RecyclerView.class);
+                startActivity(intent);
             }
         });
     }
