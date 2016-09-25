@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         btnRecyclerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RecyclerView.class);
+                Intent intent = new Intent(getApplicationContext(), RecyclerViewActivity.class);
                 startActivity(intent);
             }
         });
