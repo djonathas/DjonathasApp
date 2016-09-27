@@ -40,7 +40,7 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.PessoaView
     public void onBindViewHolder(final PessoaViewHolder holder, final int position) {
         holder.nome.setText(pessoas.get(position).getNome());
         holder.email.setText(pessoas.get(position).getEmail());
-        holder.telefone.setText(pessoas.get(position).getTelefone());
+        holder.telefone.setText(String.valueOf(pessoas.get(position).getTelefone()));
         Log.d(TAG, "onBindViewHolder");
         if (pessoaOnClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {

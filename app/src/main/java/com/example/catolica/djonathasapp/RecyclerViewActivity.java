@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import org.greenrobot.eventbus.EventBus;
+
 import io.realm.RealmResults;
 
 public class RecyclerViewActivity extends AppCompatActivity {
@@ -35,13 +37,17 @@ public class RecyclerViewActivity extends AppCompatActivity {
 //        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
 //        recyclerView.setLayoutManager(gridLayoutManager);
 
-        Pessoa pessoa = new Pessoa(getApplicationContext());
-        final RealmResults<Pessoa> pessoas = pessoa.getAllPessoas();
+        Pessoa pessoaStatic = new Pessoa(getApplicationContext());
+        final RealmResults<Pessoa> pessoas = pessoaStatic.getAllPessoas();
         pessoaAdapter = new PessoaAdapter(getApplicationContext(), pessoas, new PessoaAdapter.PessoaOnClickListener() {
             @Override
             public void onClickEvent(View view, int index) {
                 Intent intent = new Intent(getApplicationContext(), PessoaActivity.class);
-                intent.putExtra("id", pessoas.get(index).getId());
+                Pessoa pessoa = pessoas.get(index);
+
+                EventBus eventBus = EventBus.getDefault();
+                eventBus.postSticky(pessoa);
+
                 startActivity(intent);
             }
         });
