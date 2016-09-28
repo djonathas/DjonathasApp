@@ -25,9 +25,13 @@
         <activity android:name=".PessoaActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RecyclerViewActivity" />
+        </activity>
+        <activity android:name=".RecyclerViewActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".RecyclerViewActivity"></activity>
     </application>
 
 </manifest>

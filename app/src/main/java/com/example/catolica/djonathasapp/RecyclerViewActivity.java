@@ -16,6 +16,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private PessoaAdapter pessoaAdapter;
+    private EventBus eventBus = EventBus.getDefault();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), PessoaActivity.class);
                 Pessoa pessoa = pessoas.get(index);
 
-                EventBus eventBus = EventBus.getDefault();
                 eventBus.postSticky(pessoa);
 
                 startActivity(intent);
@@ -54,4 +54,16 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(pessoaAdapter);
     }
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        eventBus.register(this);
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        eventBus.unregister(this);
+//        super.onStop();
+//    }
 }
