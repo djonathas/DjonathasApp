@@ -22,7 +22,6 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 public class MainActivity extends AppCompatActivity {
-//    private EventBus eventBus = EventBus.getDefault();
     private Realm realm;
 
     private EditText inpNome;
@@ -37,21 +36,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         activity = this;
 
+        //obtendo valores dos inputs (editText)
         inpNome = (EditText) findViewById(R.id.inpNome);
         inpEmail = (EditText) findViewById(R.id.inpEmail);
         inpTelefone = (EditText) findViewById(R.id.inpTelefone);
 
+        //inicializa os botões
         initConfig();
 
+        //inicializa o sharedPreferences para guardar o contador de inicializações
         String PREF_NAME = "preferencia";
         SharedPreferences sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        //verifica se existe a chave "cont" no sharedPreferences, se não houver retorna o valor default (0)
         Integer cont = sharedPreferences.getInt("cont", 0);
 
+        //instanciando o editor do sharedPrecerences
         SharedPreferences.Editor editor = sharedPreferences.edit();
+        //incrementa o valor do contador em +1
         editor.putInt("cont", cont + 1);
+        //salvando as alterações
         editor.apply(); //pode usar .commit também
 
         Log.i("LOG", "Contador: " + cont.toString());
+        //verifica se quantidade no cont é multiplo de 3 para exibir a mensagem, ou seja, a cada
+        // 3 inicializações a mensagem será exibida
         if(cont % 3 == 0) {
             new AlertDialog.Builder(activity)
                     .setTitle("Bem-vindo")
@@ -59,36 +67,33 @@ public class MainActivity extends AppCompatActivity {
                     .show();
         }
 
+        //iniciando o banco do Realm
         RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
         realm = Realm.getInstance(realmConfig);
     }
 
     private void initConfig() {
-        //obtendo os botões e campos de texto
+        //obtendo os botões
         Button btnSalvar = (Button) findViewById(R.id.btnSalvar);
         Button btnApagar = (Button) findViewById(R.id.btnApagar);
         Button btnRecyclerView = (Button) findViewById(R.id.btnRecyclerView);
 
-//        btnSalvar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent tela1 = new Intent(getApplicationContext(), PessoaActivity.class);
-//
-//                eventBus.postSticky(new Pessoa(inpNome.getText().toString(), inpEmail.getText().toString(), Integer.parseInt(inpTelefone.getText().toString())));
-//
-//                startActivity(tela1);
-//            }
-//        });
-
+        //evento ao clicar no botão salvar
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Criando uma instancia da classe pessoa
                 Pessoa pessoa = new Pessoa(getApplicationContext());
+
+                //setando na instancia da classe os valores dos campos
                 pessoa.setNome(inpNome.getText().toString());
                 pessoa.setEmail(inpEmail.getText().toString());
                 pessoa.setTelefone(Integer.parseInt(inpTelefone.getText().toString()));
+
+                //salvando os dados da classe via realm
                 pessoa.save();
 
+                //imprimindo um alerta com a informação da quantidade de cadastros existentes
                 new AlertDialog.Builder(activity)
                         .setTitle("Salvo com sucesso!")
                         .setMessage("Quant. de cadastros: " + String.valueOf(pessoa.getAllPessoas().size()))
@@ -106,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //chama a recyclerview
         btnRecyclerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,18 +119,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-//        eventBus.register(this);
-    }
-
-    @Override
-    protected void onStop() {
-//        eventBus.unregister(this);
-        super.onStop();
     }
 
     @Override

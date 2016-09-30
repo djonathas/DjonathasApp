@@ -20,6 +20,7 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.PessoaView
     private List<Pessoa> pessoas;
     private PessoaOnClickListener pessoaOnClickListener;
 
+    //construtor que recebe um context, um array de pessoas e um listener
     public PessoaAdapter(Context context, List<Pessoa> pessoas, PessoaOnClickListener listener) {
         this.pessoas = pessoas;
         this.context = context;
@@ -27,6 +28,7 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.PessoaView
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         Log.d(TAG, "PessoaAdapter");
     }
+
 
     @Override
     public PessoaViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -36,6 +38,8 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.PessoaView
         return pessoaViewHolder;
     }
 
+    //evento acionado quando o loop da lista é iniciado
+    //carrega os dados obtidos no realm dentro do recyclerview
     @Override
     public void onBindViewHolder(final PessoaViewHolder holder, final int position) {
         holder.nome.setText(pessoas.get(position).getNome());
@@ -52,6 +56,7 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.PessoaView
         }
     }
 
+    //classe utilizada para setar os elementos do laço na tela
     public static class PessoaViewHolder extends RecyclerView.ViewHolder {
         public TextView nome, email, telefone;
         public PessoaViewHolder(View itemView) {
@@ -63,10 +68,12 @@ public class PessoaAdapter extends RecyclerView.Adapter<PessoaAdapter.PessoaView
         }
     }
 
+    //interface de eventos de click
     public interface PessoaOnClickListener {
         void onClickEvent(View view, int index);
     }
 
+    //obtem a quantiade de registros gravados
     @Override
     public int getItemCount() {
         Log.d(TAG, "getItemCount: ");

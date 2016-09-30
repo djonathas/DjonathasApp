@@ -99,19 +99,23 @@
             if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
                 Bitmap imageBitmap = (Bitmap) extras.get("data");
-//                Bitmap resized = Bitmap.createScaledBitmap(imageBitmap, 720, 1280, true);
                 imgUser.setImageBitmap(imageBitmap);
             }
         }
 
+        //metodo reage ao eventBus enviado na tela anterior e recebe os dados enviados
         @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
         public void onPessoaEvent(final Pessoa pessoa) {
+            //setando os dados da pessoa selecionada na tela
             txtNome.setText(pessoa.getNome());
             txtEmail.setText(pessoa.getEmail());
             txtTelefone.setText(String.valueOf(pessoa.getTelefone()));
 
+            //obtendo o botão compartilhar
             Button btnCompartilhar = (Button) findViewById(R.id.btnCompartilhar);
 
+            //setando o evento de clique do botão
+            //abre o recurso de compartilhar texto do android, enviando o nome da pessoa como parametro
             btnCompartilhar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
