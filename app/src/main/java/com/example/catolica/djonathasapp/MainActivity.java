@@ -8,6 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -18,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //import org.greenrobot.eventbus.EventBus;
@@ -27,12 +31,16 @@ import org.greenrobot.eventbus.ThreadMode;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LocationListener {
+    private static final String TAG = "main";
     private Realm realm;
 
     private EditText inpNome;
     private EditText inpEmail;
     private EditText inpTelefone;
+
+    private TextView txtLatitude;
+    private TextView txtLongitude;
 
     private Activity activity;
 
@@ -42,21 +50,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         activity = this;
 
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                callDialog("Você precisa dar permissão de acesso a sua localização", new String[] { Manifest.permission.ACCESS_FINE_LOCATION });
-            } else {
-                ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.ACCESS_FINE_LOCATION }, 0);
-            }
-        } else {
-            //Permissão concedida
-            Log.d("entrou", "entrou");
-        }
-
         //obtendo valores dos inputs (editText)
         inpNome = (EditText) findViewById(R.id.inpNome);
         inpEmail = (EditText) findViewById(R.id.inpEmail);
         inpTelefone = (EditText) findViewById(R.id.inpTelefone);
+
+        txtLatitude = (TextView)findViewById(R.id.txtLatitudeValue);
+        txtLongitude = (TextView)findViewById(R.id.txtLongitudeValue);
 
         //inicializa os botões
         initConfig();
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i("LOG", "Contador: " + cont.toString());
         //verifica se quantidade no cont é multiplo de 3 para exibir a mensagem, ou seja, a cada
         // 3 inicializações a mensagem será exibida
-        if(cont % 3 == 0) {
+        if (cont % 3 == 0) {
             new AlertDialog.Builder(activity)
                     .setTitle("Bem-vindo")
                     .setMessage("Olá, não esqueça de compartilhar o aplicativo com seus amigos")
@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         //iniciando o banco do Realm
         RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
         realm = Realm.getInstance(realmConfig);
+
+        minhaPosicao();
     }
 
     private void callDialog(String message, final String[] permissions) {
@@ -106,6 +108,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    private void minhaPosicao() {
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        boolean isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        Location location = null;
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                callDialog("Você precisa dar permissão de acesso a sua localização", new String[]{Manifest.permission.ACCESS_FINE_LOCATION});
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+            }
+        }
+
+        if (isGPSEnabled) {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 0, this);
+            location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            setLocation(location);
+//            locationManager.removeUpdates(this);
+            Log.i(TAG, "GPS");
+        } else if (isNetworkEnabled) {
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 2000, 0, this);
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            setLocation(location);
+//            locationManager.removeUpdates(this);
+            Log.i(TAG, "Network");
+        } else {
+            Toast.makeText(MainActivity.this, "Seu GPS e sua rede estão desativos, favor ativá-los.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void setLocation(Location location) {
+        txtLatitude.setText(String.valueOf(location.getLatitude()));
+        txtLongitude.setText(String.valueOf(location.getLongitude()));
     }
 
     private void initConfig() {
@@ -166,5 +204,36 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(Pessoa event) {
         Log.i("LOG", "onMessageEvent: " + event.getNome());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        try {
+//            Intent intentService = new Intent(getApplicationContext(), Servico.class);
+//            startService(intentService);
+        } catch (Exception e) {
+            Log.e(TAG, "onStart: " + e.toString());
+        }
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        setLocation(location);
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
     }
 }
