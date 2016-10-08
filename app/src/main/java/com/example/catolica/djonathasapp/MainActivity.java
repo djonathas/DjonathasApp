@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 //import android.content.Context;
 //import android.content.Intent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -43,12 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                Toast.makeText(MainActivity.this, "Você precisa dar permissão de acesso a sua localização", Toast.LENGTH_SHORT).show();
+                callDialog("Você precisa dar permissão de acesso a sua localização", new String[] { Manifest.permission.ACCESS_FINE_LOCATION });
             } else {
                 ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.ACCESS_FINE_LOCATION }, 0);
             }
         } else {
             //Permissão concedida
+            Log.d("entrou", "entrou");
         }
 
         //obtendo valores dos inputs (editText)
@@ -85,6 +87,25 @@ public class MainActivity extends AppCompatActivity {
         //iniciando o banco do Realm
         RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
         realm = Realm.getInstance(realmConfig);
+    }
+
+    private void callDialog(String message, final String[] permissions) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Permissões necessárias");
+        builder.setMessage(message);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ActivityCompat.requestPermissions(MainActivity.this, permissions, 0);
+            }
+        });
+        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "A aplicação não funcionará corretamente sem as permissões solicitadas.", Toast.LENGTH_LONG).show();
+            }
+        });
+        builder.show();
     }
 
     private void initConfig() {
