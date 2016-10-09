@@ -11,7 +11,7 @@
     <string name="btnCompartilhar">Share</string>
     <string name="btnListView">ListView</string>
     <string name="btnRecyclerView">RecyclerView</string>
-    <string name="btnMinhaLocalizacao">Minha Localização</string>
-    <string name="txtMinhaLatitude">Minha Latitude</string>
-    <string name="txtMinhaLongitude">Minha Longitude</string>
+    <string name="btnMinhaLocalizacao">My Location</string>
+    <string name="txtMinhaLatitude">My Latitude</string>
+    <string name="txtMinhaLongitude">My Longitude</string>
 </resources>

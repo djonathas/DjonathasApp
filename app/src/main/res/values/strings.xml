@@ -14,4 +14,5 @@
     <string name="btnMinhaLocalizacao">Minha Localização</string>
     <string name="txtMinhaLatitude">Minha Latitude</string>
     <string name="txtMinhaLongitude">Minha Longitude</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

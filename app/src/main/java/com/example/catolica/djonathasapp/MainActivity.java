@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         Button btnSalvar = (Button) findViewById(R.id.btnSalvar);
         Button btnApagar = (Button) findViewById(R.id.btnApagar);
         Button btnRecyclerView = (Button) findViewById(R.id.btnRecyclerView);
+        Button btnMinhaLocalizacao = (Button) findViewById(R.id.btnMinhaLocalizao);
 
         //evento ao clicar no botão salvar
         btnSalvar.setOnClickListener(new View.OnClickListener() {
@@ -190,6 +191,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RecyclerViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnMinhaLocalizacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
                 startActivity(intent);
             }
         });
