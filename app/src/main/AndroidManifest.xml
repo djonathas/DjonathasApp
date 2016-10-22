@@ -38,11 +38,23 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <!--<service-->
+            <!--android:name=".Servico"-->
+            <!--android:exported="false">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="SERVICO_TESTE" />-->
+            <!--</intent-filter>-->
+        <!--</service>-->
         <service
-            android:name=".Servico"
-            android:exported="false">
+            android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="SERVICO_TESTE" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".MyFirebaseMessagingIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_ID_EVENT"/>
             </intent-filter>
         </service>
         <!--
