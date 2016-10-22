@@ -38,23 +38,21 @@
                 android:value=".MainActivity" />
         </activity>
 
-        <!--<service-->
-            <!--android:name=".Servico"-->
-            <!--android:exported="false">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="SERVICO_TESTE" />-->
-            <!--</intent-filter>-->
-        <!--</service>-->
-        <service
-            android:name=".MyFirebaseMessagingService">
+        <!-- <service -->
+        <!-- android:name=".Servico" -->
+        <!-- android:exported="false"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="SERVICO_TESTE" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".MyFirebaseMessagingIDService">
+        <service android:name=".MyFirebaseMessagingIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_ID_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_ID_EVENT" />
             </intent-filter>
         </service>
         <!--
@@ -71,7 +69,8 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>
