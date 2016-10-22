@@ -6,7 +6,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -17,13 +24,15 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient mGoogleApiClient = null;
     private static final String TAG = "mapa";
     private GoogleMap mMap;
-    private double latitude = -10.1749058;
-    private double longitude = -48.3402127;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,20 +58,53 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        addMarker();
+        initLocais();
     }
 
-    public void addMarker() {
+    public void addMarker(String nome, String endereco, Double latitude, Double longitude) {
         LatLng point = new LatLng(latitude, longitude);
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(point);
-        markerOptions.title("Palmas-TO");
-        markerOptions.snippet("Cidade mais quente do mundo");
+        markerOptions.title(nome);
+        markerOptions.snippet(endereco);
 
         mMap.addMarker(markerOptions);
         mMap.setOnInfoWindowClickListener(this);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 17));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 13));
+    }
+
+    public void initLocais() {
+        RequestQueue queue = Volley.newRequestQueue(MapsActivity.this);
+        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-10.2596918,-48.4746192&language=pt-BR&radius=50000&types=hospital|doctor&keyword=hospital&key=AIzaSyD3oabCakpY9isLSeXNEPEobO-_-PIafcc";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    if(response.getString("status").equals("OK")) {
+                        JSONArray resultArray = response.getJSONArray("results");
+                        for (int i = 0; i < resultArray.length(); i++) {
+                            JSONObject item = resultArray.getJSONObject(i);
+                            JSONObject location = item.getJSONObject("geometry").getJSONObject("location");
+                            addMarker(item.getString("name"), item.getString("vicinity"), location.getDouble("lat"), location.getDouble("lng"));
+                        }
+                    } else {
+                        Log.e(TAG, "onResponse: erro na string de pesquisa");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "onErrorResponse: " + error.toString());
+            }
+        });
+
+        queue.add(request);
     }
 
     @Override
